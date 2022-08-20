@@ -1,8 +1,16 @@
 abstract class Scene {
 
-    objects: object[] = [];
+    private objects: GameObject[] = [];
 
-    addObject(object: object) { }
-    abstract update(time: number, delta: number): void;
-    abstract render(time: number, delta: number): void;
+    addObject(object: GameObject) {
+        this.objects.push(object);
+    }
+
+    update(time: number, delta: number) {
+        for (let object of this.objects) object.update(time, delta);
+    }
+
+    render(time: number, delta: number) {
+        for (let object of this.objects) object.render(time, delta);
+    }
 }

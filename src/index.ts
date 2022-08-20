@@ -1,3 +1,3 @@
 Game.init();
-Game.pushScene(new MainMenuScene());
+Game.pushScene(new TestScene());
 Game.start();

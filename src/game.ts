@@ -1,7 +1,9 @@
 class Game {
 
     private static canvas: HTMLCanvasElement;
-    private static tickBind: any;
+    private static context: CanvasRenderingContext2D;
+
+    private static tickBind: any; //dont like this
     private static previousTime: number;
     private static scenes: Scene[] = [];
 
@@ -21,6 +23,8 @@ class Game {
         this.canvas.style.position = "absolute";
         this.canvas.style.backgroundColor = `rgb(${0}, ${0}, ${0})`;
 
+        this.context = this.canvas.getContext("2d")!;
+
         addEventListener("resize", _ => this.recenter())
         this.recenter();
 
@@ -39,12 +43,22 @@ class Game {
         this.scenes.pop();
     }
 
+    public static get draw(): CanvasRenderingContext2D { return this.context; }
+    public static get width(): number { return this.canvas.width; }
+    public static get height(): number { return this.canvas.height; }
+
     private static tick(time: number) {
         let delta = time - this.previousTime;
         this.previousTime = time;
+
         let currentScene = this.scenes[this.scenes.length - 1];
+
         currentScene.update(time, delta);
+
+
+        this.draw.clearRect(0, 0, this.canvas.width, this.canvas.height)
         currentScene.render(time, delta);
+
         window.requestAnimationFrame(this.tickBind);
     }
 

@@ -2,8 +2,9 @@ abstract class Scene {
 
     private objects: GameObject[] = [];
 
-    addObject(object: GameObject) {
+    addObject(object: GameObject): GameObject {
         this.objects.push(object);
+        return object;
     }
 
     update(time: number, delta: number) {

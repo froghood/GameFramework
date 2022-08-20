@@ -5,7 +5,7 @@
         "watch": true,
         "lib": [
             "DOM",
-            "ES2017"
+            "ESNext"
         ],
         "strict": true,
     }

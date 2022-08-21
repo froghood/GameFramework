@@ -1,5 +1,6 @@
 abstract class Scene {
 
+
     private objects: GameObject[] = [];
 
     addObject(object: GameObject): GameObject {
@@ -13,5 +14,13 @@ abstract class Scene {
 
     render(time: number, delta: number) {
         for (let object of this.objects) object.render(time, delta);
+    }
+
+    pressed(code: string) {
+        console.log("pressed" + code);
+    }
+
+    released(code: string) {
+        console.log("released" + code);
     }
 }

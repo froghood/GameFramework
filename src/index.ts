@@ -1,4 +1,4 @@
-import { Game } from "./game";
+import Game from "./game";
 import { TestScene } from "./scenes/test-scene/test-scene";
 
 Game.create(854, 480);

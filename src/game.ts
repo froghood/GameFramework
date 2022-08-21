@@ -1,7 +1,7 @@
 import { InputHandler } from "./input";
 import { Scene } from "./scenes/scene";
 
-export class Game {
+export default class Game {
 
     private static canvas: HTMLCanvasElement;
     private static context: CanvasRenderingContext2D;
@@ -66,15 +66,5 @@ export class Game {
     private static recenter() {
         this.canvas.style.left = `${(window.innerWidth - this.canvas.width) / 2}px`;
         this.canvas.style.top = `${(window.innerHeight - this.canvas.height) / 2}px`;
-    }
-
-    private static initInput() {
-        window.onkeydown = event => {
-
-        }
-
-        window.onkeyup = event => {
-
-        }
     }
 }

@@ -3,8 +3,6 @@ import { InputData } from "../input";
 
 export class Scene {
 
-
-
     private objects: GameObject[] = [];
 
     addObject(object: GameObject): GameObject {
@@ -20,15 +18,7 @@ export class Scene {
         for (let object of this.objects) object.render(time, delta);
     }
 
-    pressed(code: string) {
-        console.log("pressed" + code);
-    }
-
-    released(code: string) {
-        console.log("released" + code);
-    }
-
     input(inputData: InputData) {
-        console.log(inputData);
+        for (let object of this.objects) object.input(inputData);
     }
 }

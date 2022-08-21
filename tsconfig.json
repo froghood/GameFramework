@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
-        "rootDir": "./src/",
-        "outDir": "./dist/",
+        "strict": true,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "module": "amd",
         "target": "esnext",
         "watch": true,
         "lib": [
             "DOM",
             "ESNext"
         ],
-        "strict": true,
-    }
+    },
 }

@@ -1,4 +1,7 @@
-class Game {
+import { InputHandler } from "./input";
+import { Scene } from "./scenes/scene";
+
+export class Game {
 
     private static canvas: HTMLCanvasElement;
     private static context: CanvasRenderingContext2D;
@@ -7,11 +10,12 @@ class Game {
     private static previousTime: number;
     private static scenes: Scene[] = [];
 
-    private static inputs: { [code: string]: boolean } = {};
+    private static inputHandler: InputHandler;
 
     static {
         this.tickBind = this.tick.bind(this)
         this.previousTime = 0;
+        this.inputHandler = new InputHandler();
     }
 
     public static create(width: number, height: number) {
@@ -27,27 +31,7 @@ class Game {
 
         this.context = this.canvas.getContext("2d")!;
 
-        window.addEventListener("resize", _ => this.recenter())
-
-        window.addEventListener("keydown", event => {
-            if (this.inputs[event.code]) return;
-            this.inputs[event.code] = true;
-            this.currentScene.pressed(event.code)
-        });
-
-        window.addEventListener("keyup", event => {
-            delete this.inputs[event.code]
-            this.currentScene.released(event.code)
-        });
-
-        //release all inputs on focus loss
-        window.addEventListener("blur", _ => {
-            for (let code in this.inputs) {
-                delete this.inputs[code]
-                this.currentScene.released(code)
-            }
-        });
-
+        window.onresize = _ => this.recenter();
         this.recenter();
     }
 
@@ -82,5 +66,15 @@ class Game {
     private static recenter() {
         this.canvas.style.left = `${(window.innerWidth - this.canvas.width) / 2}px`;
         this.canvas.style.top = `${(window.innerHeight - this.canvas.height) / 2}px`;
+    }
+
+    private static initInput() {
+        window.onkeydown = event => {
+
+        }
+
+        window.onkeyup = event => {
+
+        }
     }
 }

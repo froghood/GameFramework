@@ -1,4 +1,8 @@
-abstract class Scene {
+import { GameObject } from "../game-object";
+import { InputData } from "../input";
+
+export class Scene {
+
 
 
     private objects: GameObject[] = [];
@@ -22,5 +26,9 @@ abstract class Scene {
 
     released(code: string) {
         console.log("released" + code);
+    }
+
+    input(inputData: InputData) {
+        console.log(inputData);
     }
 }

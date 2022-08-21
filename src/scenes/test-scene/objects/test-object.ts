@@ -1,4 +1,7 @@
-class TestObject extends GameObject {
+import { Game } from "../../../game";
+import { GameObject } from "../../../game-object";
+
+export class TestObject extends GameObject {
 
     angle: number = 0;
     xPos: number;

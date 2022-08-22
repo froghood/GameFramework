@@ -1,11 +1,13 @@
-import { GameObject } from "../game-object";
-import { InputData } from "../input";
+import { ObjectBase } from "./objects/object-base";
+import { InputData } from "../game/input";
 
 export class Scene {
 
-    private objects: GameObject[] = [];
+    private objects: ObjectBase[] = [];
 
-    addObject(object: GameObject): GameObject {
+    init() { }
+
+    addObject(object: ObjectBase): ObjectBase {
         this.objects.push(object);
         return object;
     }

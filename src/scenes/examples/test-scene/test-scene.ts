@@ -1,4 +1,5 @@
-import { Scene } from "../scene";
+import Game from "../../../game/game";
+import { Scene } from "../../scene";
 import { TestObject } from "./objects/test-object";
 
 export class TestScene extends Scene {

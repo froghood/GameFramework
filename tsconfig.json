@@ -5,10 +5,11 @@
         "outDir": "./dist",
         "module": "amd",
         "target": "esnext",
-        "watch": true,
+        //"watch": true,
         "lib": [
             "DOM",
             "ESNext"
         ],
+        "noImplicitOverride": true,
     },
 }
